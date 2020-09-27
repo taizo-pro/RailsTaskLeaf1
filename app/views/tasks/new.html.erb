@@ -2,7 +2,7 @@
 <div class="nav justify-content-end">
   <%= link_to  "一覧", tasks_path, class: 'nav-link' %>
 </div>
-<%= form_with model: @task do |f| %>
+<%= form_with model: @tasks do |f| %>
   <div class="form-group">
     <%= f.label :name, "名称" %>
     <%= f.text_field :name, class: 'form-control', id:'task_name' %>
