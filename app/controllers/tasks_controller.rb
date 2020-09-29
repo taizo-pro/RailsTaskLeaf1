@@ -12,10 +12,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params)
-    task.save!
+    @tasks = Task.new(task_params)
+    @tasks.save!
     # Flashに"タスクを〜"を保持させてからリダイレクトする。
-    redirect_to tasks_path, notice: "タスク「#{task.name}」を登録しました。"
+    redirect_to tasks_path, notice: "タスク「#{@tasks.name}」を登録しました。"
   end
 
   def edit
@@ -23,10 +23,14 @@ class TasksController < ApplicationController
   end
 
   def update
-    task = Task.find(params[:id])
-    task.update!(task_params)
-    redirect_to tasks_path, notice: "タスク「#{task.name}」を更新しました。"
+    @tasks = Task.find(params[:id])
+    @tasks.update!(task_params)
+    redirect_to tasks_path, notice: "タスク「#{@tasks.name}」を更新しました。"
   end
+
+  # def delete
+  #   @task =
+  # end
 
   private
   def task_params
@@ -35,5 +39,6 @@ class TasksController < ApplicationController
   end
 end
 
-# TODO: created_atの降順に並べる
 # TODO: 削除機能つける
+# TODO: created_atの降順に並べる
+
