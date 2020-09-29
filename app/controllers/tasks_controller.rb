@@ -34,3 +34,6 @@ class TasksController < ApplicationController
     params.require(:task).permit(:name, :description)
   end
 end
+
+# TODO: created_atの降順に並べる
+# TODO: 削除機能つける

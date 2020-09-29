@@ -1,0 +1,11 @@
+<%= form_with model: @tasks do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "名称" %>
+    <%= f.text_field :name, class: 'form-control', id:'task_name' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "詳しい説明" %>
+    <%= f.text_area :description, rows: 5, class: 'form-control', id: 'task_description' %>
+  </div>
+  <%= f.submit "更新する", class: 'btn btn-primary' %>
+<% end %>
