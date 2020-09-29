@@ -28,9 +28,11 @@ class TasksController < ApplicationController
     redirect_to tasks_path, notice: "タスク「#{@tasks.name}」を更新しました。"
   end
 
-  # def delete
-  #   @task =
-  # end
+  def destroy
+    @tasks = Task.find(params[:id])
+    @tasks.destroy
+    redirect_to tasks_path, notice: "タスク「#{@tasks.name}」を削除しました。"
+  end
 
   private
   def task_params
@@ -38,7 +40,4 @@ class TasksController < ApplicationController
     params.require(:task).permit(:name, :description)
   end
 end
-
-# TODO: 削除機能つける
-# TODO: created_atの降順に並べる
 
